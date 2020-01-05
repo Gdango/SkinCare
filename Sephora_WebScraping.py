@@ -24,7 +24,7 @@ for prod_container in prod_containers:
     i +=1
     print(i)
     price_class = prod_container.find("p", "price")
-    price = price_class.div.div.span.text.replace(' \r\n\t\t\t\t\t\t\t\t\t','')
+    price = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
 
     #use try and except statement since some do not have a rating
     try:
