@@ -12,14 +12,18 @@ def info(filename, url):
         title = prod_container.find("div", "prod-title-desc")
         #get rid of the 'n\t\t\t\t' in the string
         brand = title.a.text.replace('\n\t\t\t\t','')
-        prod_name = title.p.a.text.replace('\n\t\t\t\t','')
+        prod_name_temp = title.p.a.text.replace('\n\t\t\t\t','')
+        prod_name = prod_name_temp.replace(",", "|")
+        
         #grab the section for price
 
         price_class = prod_container.find("p", "price")
-        price = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
+        price_dollar = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
+        price = price_dollar.replace('$','') #get red of dollar sign
+        price = price.replace('-', ',')
 
         #use try and except statement since some do not have a rating
-        try:
+        try:  #some doesn't have rating so need to use try & except 
             # finding the rating
             rating_div = prod_container.find("div", "rating") 
             rating = rating_div.div.span["class"] 
@@ -47,8 +51,6 @@ url_sensitive = "Z1z13p3m" #4 pages
 filename_skintype = ["dry.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
 url_parts = [url_dry] # url_normal, url_combination, url_oily, url_sensitive]
 
-#for each url, need access to every page
-#url = url_dry + '&No=' + str(96*2) + '&Nrpp=96'
 pages = 6
 
 
@@ -59,8 +61,11 @@ for i in range(0, len(url_parts)):
     f.write(headers)
     info(filename_skintype[i], url)
     for page in range(1, pages):
-        url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
-        info(filename_skintype[i] + str(page+1), url)
+        try:
+            url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
+            info(filename_skintype[i] + str(page+1), url)
+        except:
+            break
     f.close()
 
 
