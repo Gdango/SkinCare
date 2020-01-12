@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
+import threading
 
 def info(filename, url):
     uClient = uReq(url)
@@ -49,14 +50,14 @@ url_sensitive = "Z1z13p3m" #4 pages
 
 #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]
 filename_skintype = ["dry.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
-url_parts = [url_dry] # url_normal, url_combination, url_oily, url_sensitive]
+url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
 
 pages = 6
 
-
 for i in range(0, len(url_parts)):
+
     url = url_base + url_parts[i]
-    headers = "brand,product_name,rating,amount \n"
+    headers = "brand,product_name,rating,min_amount,max_amount \n"
     f = open(filename_skintype[i], "w")  #write in cvs file
     f.write(headers)
     info(filename_skintype[i], url)
