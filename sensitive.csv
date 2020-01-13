@@ -40,7 +40,7 @@ It Cosmetics,Confidence in Your Beauty Sleep Night Cream,4.5,54.00
 Perricone MD,Cold Plasma Sub-D,4.0,135.00
 First Aid Beauty,Ultra Repair Face Moisturizer,4.5,24.00
 Dermalogica,Calm Water Gel,4.5,50.00
-Murad,Hydro-Dynamic Ultimate Moisture,4.5, 			37.50
+Murad,Hydro-Dynamic Ultimate Moisture,4.5,75.00
 boscia,Rosehip Omega Face Oil,4.5,42.00
 Lancôme,Bienfait Multi-Vital SPF 30 Day Cream Moisturizer,4.5,50.00
 Clinique,Smart Night Custom-Repair Moisturizer For Dry Combination,4.5,58.00
@@ -99,8 +99,8 @@ Mario Badescu,Aloe Moisturizer SPF 15,4.0,24.00
 Skyn Iceland,Hydro Cool Firming Neck Gels,5.0,35.00
 Kate Somerville,Goat Milk Moisturizing Cream,4.5,65.00
 Cetaphil,Moisturizing Cream,4.5,10.99 , 17.99
-Bliss,Drench & Quench Moisturizer,4.5,20.00
 Proactiv,Green Tea Moisturizer,4.5,40.00
+Bliss,Drench & Quench Moisturizer,4.5,20.00
 Teami Blends,Repair Tea Infused Facial Oil,4.5, 			24.00
 MAC,Strobe Cream Mini MAC,4.5,16.00
 Exuviance,Lift Volumizing Concentrate,4.5,87.00
@@ -124,8 +124,8 @@ Lancôme,Bienfait Multi-Vital Sunscreen Lotion Broad Spectrum SPF 30,5.0,50.00
 I Dew Care,Plush Party Buttery Vitamin C Lip Mask,4.5,16.00
 ELEMIS,Pro-Collagen Marine Cream SPF 30,4.5,128.00
 Clinique,Clinique Smart Clinical MD Multi-Dimensional Age Transformer Revolumize,4.5,69.00
-Perricone MD,Online Only Vitamin C Ester Brightening Overnight Treatment,4.5,99.00
 Lancôme,Rénergie Multi-Glow Rosy Tone Moisturizer Cream,4.5,99.00
+Perricone MD,Online Only Vitamin C Ester Brightening Overnight Treatment,4.5,99.00
 Neutrogena,Oil-Free Moisture Sensitive Skin Ultra-Gentle Facial Moisturizer,4.5,12.49
 MAC,Mineralize Timecheck Lotion,4.0,45.00
 Murad,City Skin Overnight Detox Moisturizer,4.5,72.00
@@ -172,8 +172,8 @@ Clarins,Super Restorative Day SPF 20,4.5,129.00
 Jack Black,Clean Break Oil-Free Moisturizer,5.0,30.00
 L'Oréal,Age Perfect Cell Renewal Rosy Tone Moisturizer,4.5,24.99
 Clarins,Extra-Firming Wrinkle Control Regenerating Night Cream All Skin Types,4.5,93.00
-Perricone MD,Hypoallergenic Nourishing Moisturizer,4.5,69.00
 The Body Shop,Online Only Oils Of Life Intensely Revitalising Cream,5.0,34.00
+Perricone MD,Hypoallergenic Nourishing Moisturizer,4.5,69.00
 SUNDAY RILEY,Juno Antioxidant + Superfood Face Oil,4.0,36.00 , 72.00
 COSRX,Oil Free Moisturizing Lotion,4.0,22.00
 Kiehl's Since 1851,Super Multi Corrective Cream SPF 30,5.0,68.00
@@ -212,120 +212,3 @@ Philosophy,Nature In A Jar Cica Complex Recovery Moisturizer,4.5,49.00
 CeraVe,Skin Renewing Day Cream With Sunscreen SPF 30,3.5,24.99
 boscia,Tsubaki Beauty Oil,5.0,46.00
 Clarins,Rose Radiance Cream,4.5,129.00
-Ahava,Online Only Apple Of Sodom Advanced Deep Wrinkle Cream,Null,99.00
-Burt's Bees,100% Natural Lip Butter,5.0,4.39 , 4.99
-Clinique,Repair Sculpting Night Cream,4.0,68.00
-Derma E,Firming DMAE Moisturizer,4.0,21.99
-Origins,Online Only Dr. Andrew Weil for Origins Mega-Mushroom Relief & Resilience Face Cream,4.5,69.00
-Estée Lauder,Travel Size DayWear Advanced Multi-Protection Anti-Oxidant Crème Broad Spectrum SPF 15,4.5,16.00
-StriVectin,Online Only The Little Lifters Limited Edition Kit,5.0,59.00
-Clarins,Extra-Firming Wrinkle Control Firming Day Cream All Skin Types,4.5,87.00
-Murad,Prebiotic 3-In-1 MultiMist,4.5,32.00
-Little Barn Apothecary,Borage + Botanicals Hydration Cream Concentrate,4.0, 			52.50
-Beauty Bakerie,Wake & Bake Face Oil,4.5,28.00
-First Aid Beauty,Travel Size Ultra Repair Cream Mango,4.5,14.00
-TONYMOLY,Pandas Dream White Sleeping Mask,4.5,14.50
-Hey Honey,Online Only 24Seven Day & Night Revitalizing Cream,4.5,48.00
-Klairs,Online Only Rich Moist Soothing Cream,5.0,25.00
-First Aid Beauty,Ultra Repair Pure Mineral Sunscreen Moisturizer SPF 40,3.5,30.00
-THE ROUTE,The Everything Night - Skin Rhythm Multi-Tasker,5.0,90.00
-My Clarins,RE-BOOST Refreshing Hydrating Cream,4.5,25.00
-Philosophy,Travel Size Anti-Wrinkle+ Miracle Worker Line Correcting Moisturizer,5.0,24.00
-Andalou Naturals,Online Only CannaCell Dreamy Night Cream,4.5,19.99
-TONYMOLY,Panda's Dream Rose Oil Moisture Stick,5.0,14.50
-Peter Thomas Roth,Green Releaf Therapeutic Sleep Cream,4.0,65.00
-Mamonde,Floral Hydro Cream,4.5, 			22.40
-Mario Badescu,Kera Moisturizer,4.0,20.00
-Clarins,Online Only Hydra-Essentiel Rich Cream,5.0,48.00
-Clinique,Travel Size Dramatically Different Hydrating Jelly,4.0,5.00
-Clarins,Beauty Flash Balm,4.5,49.00
-The Body Shop,Online Only Guarana & Coffee Energizing Moisturizer For Men,5.0,12.97
-DHC,Olive Virgin Oil,5.0,42.00
-boscia,Rosewater Mist with Witch Hazel,4.5,24.00
-THE ROUTE,The Everything Day - Skin Rhythm Multi-Tasker,5.0,90.00
-Jergens,Natural Glow Healthy Complexion Daily Facial Moisturizer,4.0,10.99
-Botanics,All Bright Hydrating Day Cream Sunscreen Broad Spectrum SPF 15,4.0,13.99
-Skyn Iceland,Glacial Spray Lotion,4.0, 			17.50
-Derma E,Tinted Moisturizing BB Cream with SPF 30+,3.5,19.95
-Dermalogica,Travel Size Prisma Protect SPF 30,5.0,19.00
-Kiehl's Since 1851,Glow Formula Skin Hydrator,4.5,38.00
-Neutrogena,Hydro Boost Lip Treatment,4.5,9.99
-Peter Thomas Roth,Max Sheer All Day Moisture Defense Lotion SPF 30,4.0,42.00
-Clarins,Multi-Active Day Cream - All Skin Types,4.0,55.00
-Peter Thomas Roth,Acne-Clear Oil-Free Matte Moisturizer,3.5,38.00
-Lancôme,Bienfait Multi-Vital Hydrating & Protecting Duo,Null,71.00
-Little Barn Apothecary,Bamboo + Fresh Mint Clearing Mist,5.0, 			22.40
-Cetaphil,Daily Advance Lotion,4.5,16.99
-Lancôme,Bienfait Aqua Vital Crème Continuous Infusing Moisturizer,4.5,50.00
-L'Oréal,Age Perfect Rosy Tone Fragrance Free Face Moisturizer,4.5,24.99
-SheaMoisture,100% Virgin Coconut Oil Daily Hydration Face Lotion,4.0,11.49
-Mario Badescu,Aloe Lotion,4.5,15.00
-Indeed Labs,Online Only 10balm Cream,5.0,19.99
-Andalou Naturals,Online Only CannaCell Happy Day Cream,3.5,19.99
-Peter Thomas Roth,Green Releaf Calming Face Oil,5.0,68.00
-Derma E,Skin De-Stress Calming CBD Moisturizer,5.0,21.50
-ARCONA,Wine Oil,5.0,58.00
-DHC,Online Only Super Collagen Cream,5.0,50.00
-Philosophy,Online Only Take A Deep Breath Night Oil-Free Detoxifying Gel-Balm,4.0,45.00
-Bliss,Ex-Glow-Sion Moisturizer,4.0,20.00
-Teami Blends,Online Only Glow Tea Infused Facial Oil,3.5, 			24.00
-Aveeno,Ultra-Calming Daily Moisturizer SPF 30,4.5,18.99
-Bliss,Hydration Salvation Facial Oil,4.5,22.00
-Elizabeth Arden,Online Only Eight Hour Cream All-Over Miracle Oil,4.5,28.00
-Hanskin,Online Only Hyaluron Moisture Cream,4.5,30.00
-Burt's Bees,BB Cream with SPF 15,4.0,14.99
-Cetaphil,Travel Size Moisturizing Lotion,3.5,3.49
-e.l.f. Cosmetics,Nourishing Facial Oil,4.0,4.97
-Clinique,Clinique For Men Anti-Fatigue Hydrating Concentrate SPF 25,4.0,45.50
-Shiseido,Essential Energy Moisturizing Gel Cream,4.0,48.00
-Garnier,SkinActive Soothing 3-in-1 Face Moisturizer with Rose Water,4.0,14.99
-Butter London,Online Only LumiMatte Blurring Skin Tint,4.5,28.00
-Jack Black,Dry Erase Ultra-Calming Face Cream,4.0,38.00
-Perricone MD,H2 Elemental Energy Hydrating Cloud Cream,4.5,59.00
-L'Oréal,Pure Sugar Smooth and Glow Grapeseed Lip Scrub,4.5,6.99
-Origins,Online Only Dr. Andrew Weil for Origins Mega-Mushroom Relief & Resilience Hydra Burst Gel Lotion,4.5,69.00
-Exuviance,Skin Caring BB Fluid with Sunscreen Broad Spectrum SPF 50 PA++++,4.0,42.00
-TONYMOLY,Panda's Dream Pocket Lip Balm,4.5,9.50
-ELEMIS,Peptide4 Adaptive Day Cream,4.0,62.00
-Belli,Online Only Healthy Glow Facial Hydrator,4.0,32.00
-SKIN&CO;,Online Only Truffle Therapy Radiant Dew Mist,4.5,35.00
-Differin,Online Only Soothing Moisturizer,4.5,8.99
-ARCONA,Peptide Hydrating Complex,5.0,77.00
-Grown Alchemist,Online Only Antioxidant+ Facial Oil,5.0,55.00
-Grown Alchemist,Online Only Age-Repair Moisturiser,5.0,99.00
-Kiehl's Since 1851,Centella Sensitive Cica Balm,4.5,43.00
-First Aid Beauty,Skin Rescue Purifying Mask with Red Clay,3.5,30.00
-ARCONA,Online Only Magic Dry Ice,5.0,60.00
-Nivea,Online Only Men's Sensitive Post Shave Balm,4.0,6.99
-Banila Co,Dear Hydration Boosting Cream,Null,25.00
-DHC,Online Only Super Collagen Mist,4.5,20.00
-Neutrogena,Deep Clean Purifying Micellar Water,2.5,9.99
-re:p,Nutrinature Ultra All-In-One Multitem,5.0,34.00
-frank body,Everyday Face Moisturizer,4.0,10.97
-DHC,Online Only Rich Moisture,4.5,35.00
-Clarins,Hydra-Essentiel Cooling Gel,4.0,48.00
-Pacifica,Sea & C Bright Luminizing Face Lotion,3.5,14.00
-ARCONA,Online Only Magic White Ice,Null,46.00
-Trilogy,Hydrating Mist Toner,4.5, 			20.30
-e.l.f. Cosmetics,Online Only Beauty Shield Massaging Overnight Recovery Cream,5.0,14.00
-boscia,Sake Treatment Water,5.0,46.00
-Pacifica,Travel Size Coconut Probiotic Water Rehab Cream,5.0,10.00
-YourGoodSkin,Brightening Exfoliating Wash,4.5,8.49
-Trilogy,Vitamin C Moisturising Lotion,5.0, 			32.20
-Pacifica,Travel Size Dreamy Youth Day And Night Face Cream,Null,10.00
-Pacifica,Travel Size Coconut Essence Hydro Mist,Null,5.00
-Shiseido,Online Only Benefiance NutriPerfect Day Cream,4.5,93.00
-My Clarins,RE-FRESH Hydrating Beauty Mist,4.5,20.00
-YourGoodSkin,Cica Repair Sleep Paste Mask,4.5,14.99
-ARCONA,Online Only Four O'Clock Flower,5.0,68.00
-Garnier,Travel Size SkinActive Facial Mist Spray with Rose Water,4.5,3.99
-belif,Online Only Pore Cleaner Moisturizer,0.0,32.00
-Banila Co,Dear Hydration Balancing Moisturizer,Null,30.00
-Plant Apothecary,Online Only Re:Fresh Organic Toning Face Mist,Null,12.00
-Kitao,Matcha + Chia Facial Cream,4.5,30.00
-First Aid Beauty,Facial Radiance Illuminating Moisturizer,3.0,16.97
-ARCONA,Online Only Desert Mist,5.0,40.00
-Winky Lux,Online Only Dream Gelee Hydrator,5.0,30.00
-Cane + Austin,Online Only Facial Moisture Cream,3.0,39.97
-The Body Shop,Carrot Cream Nature-Rich Daily Moisturizer,3.0,20.00
-Derma E,Blue Light Shield Spray,Null,16.95

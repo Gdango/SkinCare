@@ -32,7 +32,7 @@ def info(filename, url):
             rating = rating[1].replace('rating-','')
             rating = rating.replace('-','.') 
         except:
-            rating = "Null"
+            rating = 0
         
         #write the data set into the cvs file
         f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
