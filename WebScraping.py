@@ -21,7 +21,7 @@ def info(filename, url):
         price_class = prod_container.find("p", "price")
         price_dollar = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
         price = price_dollar.replace('$','') #get red of dollar sign
-        price = price.replace('-', ',')
+        #price = price.replace('-', ',')
 
         #use try and except statement since some do not have a rating
         try:  #some doesn't have rating so need to use try & except 
@@ -30,7 +30,7 @@ def info(filename, url):
             rating = rating_div.div.span["class"] 
             #returns the second item on the list since that's the rating
             rating = rating[1].replace('rating-','')
-            rating = rating.replace('-','.') 
+            rating = rating.replace('-', '.')
         except:
             rating = 0
         
@@ -49,15 +49,15 @@ url_sensitive = "Z1z13p3m" #4 pages
 
 
 #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]
-filename_skintype = ["dry.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
-url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
+filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
+url_parts = [url_dry] # url_normal, url_combination, url_oily, url_sensitive]
 
 pages = 6
 
 for i in range(0, len(url_parts)):
 
     url = url_base + url_parts[i]
-    headers = "brand,product_name,rating,min_amount,max_amount \n"
+    headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
     f = open(filename_skintype[i], "w")  #write in cvs file
     f.write(headers)
     info(filename_skintype[i], url)
