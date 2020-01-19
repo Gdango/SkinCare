@@ -2,14 +2,16 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 import threading
 
-def info(filename, url):
+def info(url):
     uClient = uReq(url)
     page_html = uClient.read()
     uClient.close()
     page_soup = soup(page_html, "html.parser")
     prod_containers = page_soup.findAll("div", {"class": "productQvContainer"})
+    prim_key = 0
 
     for prod_container in prod_containers:
+        prim_key += 1
         title = prod_container.find("div", "prod-title-desc")
         #get rid of the 'n\t\t\t\t' in the string
         brand = title.a.text.replace('\n\t\t\t\t','')
@@ -21,7 +23,10 @@ def info(filename, url):
         price_class = prod_container.find("p", "price")
         price_dollar = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
         price = price_dollar.replace('$','') #get red of dollar sign
-        #price = price.replace('-', ',')
+        if '-' not in price:
+            price = price + ',' + price
+        else:
+            price = price.replace('-', ',')
 
         #use try and except statement since some do not have a rating
         try:  #some doesn't have rating so need to use try & except 
@@ -35,7 +40,7 @@ def info(filename, url):
             rating = 0
         
         #write the data set into the cvs file
-        f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
+        f.write(str(prim_key) + ',' + brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 url_base = "https://www.ulta.com/skin-care-moisturizers?N=2796"
@@ -50,21 +55,21 @@ url_sensitive = "Z1z13p3m" #4 pages
 
 #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]
 filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
-url_parts = [url_dry] # url_normal, url_combination, url_oily, url_sensitive]
+url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
 
 pages = 6
 
 for i in range(0, len(url_parts)):
 
     url = url_base + url_parts[i]
-    headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
+    #headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
     f = open(filename_skintype[i], "w")  #write in cvs file
-    f.write(headers)
-    info(filename_skintype[i], url)
+    #f.write(headers)
+    info(url)
     for page in range(1, pages):
         try:
             url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
-            info(filename_skintype[i] + str(page+1), url)
+            info(url)
         except:
             break
     f.close()
