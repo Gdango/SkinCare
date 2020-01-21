@@ -8,10 +8,8 @@ def info(url):
     uClient.close()
     page_soup = soup(page_html, "html.parser")
     prod_containers = page_soup.findAll("div", {"class": "productQvContainer"})
-    prim_key = 0
 
     for prod_container in prod_containers:
-        prim_key += 1
         title = prod_container.find("div", "prod-title-desc")
         #get rid of the 'n\t\t\t\t' in the string
         brand = title.a.text.replace('\n\t\t\t\t','')
@@ -40,7 +38,7 @@ def info(url):
             rating = 0
         
         #write the data set into the cvs file
-        f.write(str(prim_key) + ',' + brand + "," + prod_name + "," + rating + "," + price + "\n")
+        f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 url_base = "https://www.ulta.com/skin-care-moisturizers?N=2796"
@@ -57,7 +55,7 @@ url_sensitive = "Z1z13p3m" #4 pages
 filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
 url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
 
-pages = 6
+pages = 6 # maximum page is 6
 
 for i in range(0, len(url_parts)):
 
@@ -67,7 +65,7 @@ for i in range(0, len(url_parts)):
     #f.write(headers)
     info(url)
     for page in range(1, pages):
-        try:
+        try: 
             url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
             info(url)
         except:
