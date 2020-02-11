@@ -10,6 +10,7 @@ plt.bar(np.arange(1, 11), info[0][0:10])  #get the top 10
 #ax.set_xticks(range(1, 11),1)
 plt.xticks(np.arange(1, 11, 1))
 ax.set_xticklabels(info[1][0:10])
+
 plt.xlabel('Brand Name')
 plt.ylabel('Number of Product')
 plt.title('Top 10 Brand with Product the Most Product Greater Than 4 Stars')
