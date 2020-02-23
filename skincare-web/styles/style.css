@@ -1,6 +1,17 @@
-h1 {
-    color: red;
+.container h1 {
+    width: 20 px;
+    margin: 10 auto;
+    background-color: pink;
+    padding: 0px 10px 10px 10px;
+    border: 10px solid pink;
+    font-family: 'serif', serif;
+    font-style: italic;
+    font-style: bold;
+    font-size: 40px;
+    color: blue;
+
 }
+
 
 li {
     font-size: 16px;
@@ -8,14 +19,17 @@ li {
 
 html {
     background-color: pink;
-    font-family: "arial", Arial;
 }
 
 body {
     width: 1000px;
     margin: 0 auto;
     background-color: white;
-    padding: 30px 20px 1000px 100px;
-    border: 30px solid pink;
+    padding: 10px 20px 1000px 20px;
+    border: 10px solid pink;
     
+}
+img {
+    display: block;
+    margin: 0 auto;
 }
