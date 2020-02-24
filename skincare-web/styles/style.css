@@ -8,17 +8,19 @@
     font-style: italic;
     font-style: bold;
     font-size: 40px;
-    color: blue;
+    color: white;
 
 }
 
 
-li {
-    font-size: 16px;
+ul {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(56, 56, 56);
 }
 
 html {
-    background-color: pink;
+    background-color:  rgb(250, 215, 220);
 }
 
 body {
@@ -26,10 +28,23 @@ body {
     margin: 0 auto;
     background-color: white;
     padding: 10px 20px 1000px 20px;
-    border: 10px solid pink;
+    border: 0px;
     
 }
 img {
     display: block;
     margin: 0 auto;
+}
+.btn {
+    border: none;
+    background-color: pink;
+    padding: 15px 30px;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: 48%;
+    text-align: center;
+    font-family: 'serif', serif;
+    color: rgb(56, 56, 56);
+    font-weight: bold;
 }
