@@ -14,7 +14,7 @@ Analyze the data using SQL and graph that using Matplotlib
 # Phase 3
 Create the front-end of the web app
 
-![Front End] (images/front-end.PNG)
+![](images/front-end.PNG)
 
 # Phase 4
 Create the back-end of the web app - I am planning on using Flask-Python
