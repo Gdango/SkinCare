@@ -7,6 +7,7 @@ There will be a few different phases for this project.
 
 # Phase 1
 Webscrape different sites using beautiful-soup package from Python to create a database.  Then I would host it on the AWS-RDS instance.
+![Front End] (images/front-end.png)
 
 # Phase 2
 Analyze the data using SQL and graph that using Matplotlib
