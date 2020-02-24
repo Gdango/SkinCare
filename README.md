@@ -6,13 +6,13 @@ Skin-Care is a very exciting project for me because I am passionate about skin c
 There will be a few different phases for this project.  
 
 # Phase 1
-Webscrape different sites using beautiful-soup package from Python to create a database.  Then I would host it on the AWS-RDS instance.
+Webscraped different sites using beautiful-soup package from Python to create a database.  Then I would host it on the AWS-RDS instance.
 
 # Phase 2
-Analyze the data using SQL and graph that using Matplotlib
+Analyzed the data using SQL and graph that using Matplotlib
 
 # Phase 3
-Create the front-end of the web app
+Created the front-end of the web app
 
 ![](images/front-end.PNG)
 
