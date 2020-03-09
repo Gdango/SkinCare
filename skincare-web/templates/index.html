@@ -12,40 +12,40 @@
 <br>
 <br>
 <div class="container">
-        <form action="/" method="POST">
+    <form action="/" method="POST">
+        <div class="form-group">
             <h1>Skin Type</h1>
-            <ul>
-                <input type="checkbox" id="Combination" value="Combination">
-                <label>Combination</label><br>
-                <input type="checkbox" id="Oily" value="Oily">
-                <label> Oily </label><br>
-                <input type="checkbox" id="Dry" value="Dry">
-                <label> Dry</label><br>
-            </ul>
+            <input type="checkbox" name="skin_type" value= "Combination">
+            <label>Combination</label><br>
+            <input type="checkbox" name="skin_type" value= "Oily">
+            <label>Oily</label><br>
+            <input type="checkbox" name="skin_type" value= "Dry">
+            <label>Dry</label><br>
 
-            <h1> Rating</h1>
-                <ul>
-                    <input type="checkbox" id="rating-4-Up" value="rating-4-Up">
-                    <label> 4 Stars & Up</label><br>
-                    <input type="checkbox" id="rating-3-Up" value="rating-3-Up">
-                    <label > 3 Stars & Up</label><br>
-                    <input type="checkbox" id="rating-2-Up" value="rating-2-Up">
-                    <label> 2 Stars & Up</label><br>
-                </ul>
+        </div>
 
+        <div class="form-group">
+            <h1>Rating</h1>
+            <input type="checkbox" name="Rating" value="4"> <!--4 and Up-->
+            <label>4 Stars & Up</label><br>
+            <input type="checkbox" name="Rating" value="3">
+            <label>3 Stars & Up</label><br>
+            <input type="checkbox" name="Rating" value="2">
+            <label>2 Stars & Up</label><br>
+        </div>
+
+        <div class="form-group">
             <h1>Price</h1>
-                <ul>
-                    <input type="checkbox" id="price" value="price-70-up">
-                    <label> $70 & Above</label><br>
-                    <input type="checkbox" id="price" value="price-25-70">
-                    <label> $25 to $70</label><br>
-                    <input type="checkbox" id="price" value="price-25-below">
-                    <label> $25 & Below</label><br>
-                </ul>
-            <button class=btn> Submit</button>
-            </div>
-            
-        </form>
+            <input type="checkbox" name="Price" value="70"> 
+            <label>$70 & Above</label><br>
+            <input type="checkbox" name="Price" value="25-to-70"> 
+            <label>$25 & Above</label><br>
+            <input type="checkbox" name="Price" value="25"> 
+            <label>$25 & Below</label><br>
+
+        <button class=btn> Submit</button>
+        
+    </form>
     
 
 
