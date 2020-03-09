@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 
 app = Flask(__name__)
 
@@ -12,6 +12,11 @@ def index():
 
         print(skin_type, rating, price)
     return render_template('index.html')
+
+@app.route('/Result', methods=['POST', 'GET'])
+
+def result():
+    return render_template('result.html')
 
 
 
