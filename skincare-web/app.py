@@ -17,7 +17,7 @@ def index():
 
         info = get_info.get_info(query)
 
-        return render_template('result.html')
+        return redirect(url_for('result'))
 
     return render_template('index.html')
 
