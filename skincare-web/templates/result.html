@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<header>
+    <img src= "{{ url_for('static', filename='images/head-image.png') }}">
+
+</header>
+
+{% endblock %} 
+
 {% block body %}
 
 <div class="result">
