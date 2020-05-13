@@ -31,3 +31,4 @@ def get_info(query):
     cur.close()
     
     return brand, prod_name, price, rating
+

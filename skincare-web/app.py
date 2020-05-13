@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, after_this_request
 import get_info
 
 app = Flask(__name__)
@@ -12,8 +12,7 @@ def index():
         rating = request.form.get("Rating")
         price = request.form.get("Price")
 
-        query = 'select * from ' + skin_type + ';'
-        ''' + ' where (rating >= ' + rating + '+ ' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'''
+        query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
 
         info = get_info.get_info(query)
 
@@ -21,9 +20,11 @@ def index():
 
     return render_template('index.html')
 
+
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
+    
     return render_template('result.html')
 
 
