@@ -14,20 +14,20 @@ def index():
         price = request.form.get("Price")
 
         query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
-
+        global info
+        
         info = get_info.get_info(query)
-        print(type(info))
 
-        #return redirect(url_for('result'))
+        return redirect(url_for('result'))
 
     return render_template('index.html')
-'''
+
 
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
-    
-    return render_template('result.html', info=info)'''
+
+    return render_template('result.html', info=info)
 
 
 
