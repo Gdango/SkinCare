@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, after_this_request
+from flask_table import Table, Col
 import get_info
 
 app = Flask(__name__)
@@ -15,17 +16,18 @@ def index():
         query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
 
         info = get_info.get_info(query)
+        print(type(info))
 
-        return redirect(url_for('result'))
+        #return redirect(url_for('result'))
 
     return render_template('index.html')
-
+'''
 
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
     
-    return render_template('result.html')
+    return render_template('result.html', info=info)'''
 
 
 

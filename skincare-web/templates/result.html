@@ -11,13 +11,23 @@
 {% block body %}
 
 <div class="result">
-    <table>
+    
+    <table class="centered thick-border">
         <tr>
-            <th>Product Name</th>
-            <th>Brand</th>
-            <th>Rating</th>
-            <th>Price</th>
+            <td>Brand</td>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Rating</td>
+        <tr>
+        {% for brand, prod_name, price, rating in info.items() %}
         </tr>
+            <td>{{ brand }}</td>
+            <td>{{ prod_name }}</td>
+            <td>{{ price }}</td>
+            <td>{{ rating }}</td>
+        <tr>
+        {% endfor %}
+            
     </table>
     
 </div>
