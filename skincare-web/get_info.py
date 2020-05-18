@@ -27,7 +27,8 @@ def get_info(query):
         price.append(rows[row][2])
         rating.append(rows[row][3])
     
-    row = {'Brand': brand, 'Product': prod_name, 'Price': price, 'Rating': rating}
+    #row = {'Brand': brand, 'Product': prod_name, 'Price': price, 'Rating': rating}
+    row = [brand, prod_name, price, rating]
     
     cur.close()
 

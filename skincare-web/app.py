@@ -26,7 +26,7 @@ def index():
 
 def result():
 
-    return render_template('result.html', info=info)
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1], Price=info[2], Rating=info[3])
 
 
 
