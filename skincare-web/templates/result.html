@@ -10,27 +10,24 @@
 
 {% block body %}
 
-<div class="result">
-    
+<body class="result">
     <table class="centered thick-border">
+        <thead>
+            <th>Brand</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </thead>
+        
         <tr>
-            <td>Brand</td>
-            <td>Product Name</td>
-            <td>Price</td>
-            <td>Rating</td>
-        <tr>
-        <!--{% for brand, prod_name, price, rating in info.items() %}!-->
-        {% for brand, prod_name, price, rating in info.items() %}
+            <td>{{ info['Brand'] }}</td>
+            <td>{{ info['Product'] }}</td>
+            <td>{{ info['Price'] }}</td>
+            <td>{{ info['Rating'] }}</td>
         </tr>
-            <td>{{ brand }}</td>
-            <td>{{ prod_name }}</td>
-            <td>{{ price }}</td>
-            <td>{{ rating }}</td>
-        <tr>
-        {% endfor %}
-            
+        
     </table>
     
-</div>
+</body>
 
 {% endblock %}

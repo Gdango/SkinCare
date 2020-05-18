@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request, redirect, after_this_request
-from flask_table import Table, Col
 import get_info
 
 app = Flask(__name__)
@@ -33,3 +32,4 @@ def result():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
