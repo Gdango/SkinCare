@@ -12,7 +12,22 @@ def index():
         rating = request.form.get("Rating")
         price = request.form.get("Price")
 
-        query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
+        # Combination, Oily, Dry
+        # 4 Stars & Up
+        # 3 Stars & Up
+        # 2 Stars & Up
+        '''Price: 
+        $70 & Above
+        $25 & Above
+        $25 & Below '''
+
+        if price == '25-to-70':
+            query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
+        elif price == '70':
+            query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount >= 70;'
+        elif price == '25':
+            query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount <= 25;'
+
         global info
         
         info = get_info.get_info(query)
@@ -26,7 +41,7 @@ def index():
 
 def result():
 
-    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1], Price=info[2], Rating=info[3])
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 
 
