@@ -6,24 +6,24 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 
 def index():
-    Warning= None
+    Warning= " "
     if request.method == "POST":
 
-        skin_type = request.form.get("skin_type")
-        rating = request.form.get("Rating")
-        price = request.form.get("Price")
-        # covers cases when user did not check all the requirements
+        skin_type = request.form.getlist("skin_type")
+        rating = request.form.getlist("Rating")
+        price = request.form.getlist("Price")
+        
+        if max(len(skin_type), len(rating), len(price)) != 1:
+            Warning="Please enter 1 Parameter Only"
+            return render_template('index.html', Warning=Warning)
+        
+        skin_type = skin_type[0]
+        rating = rating[0]
+        price = price[0]
+
+  
         # covers cases when user entered more than one requirements for each category
         
-
-        # Combination, Oily, Dry
-        # 4 Stars & Up
-        # 3 Stars & Up
-        # 2 Stars & Up
-        '''Price: 
-        $70 & Above
-        $25 & Above
-        $25 & Below '''
         try:
             if price == '25-to-70':
                 query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
@@ -36,7 +36,8 @@ def index():
             return redirect(url_for('result'))
 
 
-        except:
+        except UnboundLocalError:
+            # covers cases when user did not check all the requirements
             Warning = 'You must enter all parameters!'
 
     return render_template('index.html', Warning=Warning)
