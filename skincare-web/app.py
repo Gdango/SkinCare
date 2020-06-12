@@ -1,5 +1,18 @@
-from flask import Flask, render_template, url_for, request, redirect, after_this_request
+from flask import Flask, render_template, url_for, request, redirect, g
+import requests
 import get_info
+
+def Query(skin_type, rating, price):
+    if price == '25-to-70':
+        query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
+    elif price == '70':
+        query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount >= 70;'
+    elif price == '25':
+        query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount <= 25;'
+
+    info = get_info.get_info(query)
+
+    return info
 
 app = Flask(__name__)
 
@@ -25,16 +38,8 @@ def index():
         # covers cases when user entered more than one requirements for each category
         
         try:
-            if price == '25-to-70':
-                query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and (max_amount between ' + price.split('-to-', 1)[0] + ' and ' + price.split('-to-',1)[1] + ');'
-            elif price == '70':
-                query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount >= 70;'
-            elif price == '25':
-                query = 'select * from ' + skin_type + ' where (rating >= ' + rating + ')' +' and max_amount <= 25;'
-            global info
-            info = get_info.get_info(query)
+            info = Query(skin_type, rating, price)
             return redirect(url_for('result'))
-
 
         except UnboundLocalError:
             # covers cases when user did not check all the requirements
@@ -46,8 +51,8 @@ def index():
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
-
-    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
+    info = requests.get(url_for('result'), )
+    return render_template('result.html', Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 
 
