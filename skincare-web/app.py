@@ -30,16 +30,17 @@ def index():
             Warning="Please enter 1 Parameter Only"
             return render_template('index.html', Warning=Warning)
         
-        skin_type = skin_type[0]
+        user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
+        '''skin_type = skin_type[0]
         rating = rating[0]
-        price = price[0]
+        price = price[0]'''
 
-  
         # covers cases when user entered more than one requirements for each category
         
         try:
-            info = Query(skin_type, rating, price)
-            return redirect(url_for('result'))
+            #(url_for('result', skin_type=skin_type, rating=rating, price=price))
+            print(url_for('result', user_input=user_input))
+            return redirect(url_for('result', user_input=user_input))
 
         except UnboundLocalError:
             # covers cases when user did not check all the requirements
@@ -51,7 +52,10 @@ def index():
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
-    info = requests.get(url_for('result'), )
+    print(requests.get(url_for('result', user_input)))
+    info = requests.get('result')
+    print(info.json())
+
     return render_template('result.html', Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 
