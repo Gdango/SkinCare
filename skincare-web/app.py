@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, g
-import requests
+from flask import Flask, render_template, url_for, request, redirect
 import get_info
 
 def Query(skin_type, rating, price):
@@ -31,9 +30,6 @@ def index():
             return render_template('index.html', Warning=Warning)
         
         user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
-        '''skin_type = skin_type[0]
-        rating = rating[0]
-        price = price[0]'''
 
         # covers cases when user entered more than one requirements for each category
         
@@ -52,13 +48,13 @@ def index():
 @app.route('/Result', methods=['POST', 'GET'])
 
 def result():
-    print(requests.get(url_for('result', user_input)))
-    info = requests.get('result')
-    print(info.json())
 
-    return render_template('result.html', Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
+    user_input = request.args.get('user_input', type=str)
+    dict_user_input = eval(user_input)
 
+    info = Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
 
+    return render_template('result.html', length = len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 if __name__ == "__main__":
     app.run(debug=True)
