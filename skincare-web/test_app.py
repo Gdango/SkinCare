@@ -2,7 +2,6 @@ from app import app
 import unittest
 
 class FlaskApp(unittest.TestCase):
-
     def setUp(self):
         self.app = app.test_client()
         self.app.testing = True
@@ -16,4 +15,3 @@ if __name__ == "__main__":
 
     
 
-    
