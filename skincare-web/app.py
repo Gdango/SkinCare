@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 import get_info
 
 def Query(skin_type, rating, price):
@@ -23,7 +23,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 
 def index():
-    Warning= " "
+    Warning = None
+
     if request.method == "POST":
 
         skin_type = request.form.getlist("skin_type")
@@ -33,7 +34,7 @@ def index():
         try:
             # covers cases when user entered more than one requirements for each category
             if max(len(skin_type), len(rating), len(price)) != 1:
-                Warning="Please enter 1 Parameter Only"
+                Warning = "Please enter 1 Parameter Only"
                 return render_template('index.html', Warning=Warning)
             else:
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
@@ -53,7 +54,7 @@ def result():
 
     info = Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
 
-    return render_template('result.html', length = len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 if __name__ == "__main__":
     app.run(debug=True)
