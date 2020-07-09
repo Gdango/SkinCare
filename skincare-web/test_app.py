@@ -1,21 +1,19 @@
 from app import app
 import unittest
+from unittest.mock import Mock
 
 class FlaskApp(unittest.TestCase):
-
-    def setUp(self):
-        self.app = app.test_client()
-        self.app.testing = True
-
     # test response is 200
     def test_index(self):
-        response = self.app.get('/')
+        apps = app.test_client()
+        response = apps.get('/')
         self.assertEqual(response.status_code, 200)
 
     '''def test_valid_query(self):
-        query_result = self.app.Query('Combination', '4', '25-to-70')
-        response = self.app.get('/Result')
-        self.assertEqual(response.status_code, 200)'''
+        mock_query = Mock()
+        mock_query.app.Query.assert_called_with("Combination", 3, '25-to-70')'''
+
+
 
     # test "info" returns the right table
 
