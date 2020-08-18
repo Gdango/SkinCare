@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 
 def index():
-    Warning = None
+    Warning = ""
 
     if request.method == "POST":
 
