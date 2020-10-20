@@ -3,7 +3,7 @@ I've been wanting to apply my programming skills and build a tool that would be 
 
 Skin-Care is a very exciting project for me because I am passionate about skin care.  Now I can combine two things I am passionate about and find a solution that would help myself and others! 
 
-Here is the [demo] (https://skin-care-gd.herokuapp.com/) I deployed onto Heroku.
+Here is the [demo](https://skin-care-gd.herokuapp.com/) I deployed onto Heroku.
 
 Tools: Python-Flask, PostgreSQL, AWS-RDS, HTML5, CSS, Matplotlib
 
