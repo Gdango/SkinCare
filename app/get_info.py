@@ -6,11 +6,12 @@ A = split_input[0]
 B = split_input[1]
 C = split_input[2]
 D = split_input[3]
-conn = psycopg2.connect(host=A, database=B, user=C, password=D)
-cur = conn.cursor()
 
+print("4=", split_input)
 def get_info(query):
-    
+    print('5=', "Pass")
+    conn = psycopg2.connect(host=A, database=B, user=C, password=D)
+    cur = conn.cursor()  
     cur.execute(query)
     rows = cur.fetchall()
 
@@ -18,6 +19,9 @@ def get_info(query):
     prod_name = []
     price = []
     rating = []
+
+    cur.close()
+    conn.close()
 
     for row in range(0, len(rows)):
         
@@ -27,8 +31,7 @@ def get_info(query):
         rating.append(rows[row][3])
     
     row = [brand, prod_name, rating, price]
-    
-    cur.close()
+
 
     return row
 

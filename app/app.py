@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 import get_info
 
+print("Hello World")
 def Query(skin_type, rating, price):
     if price == '25-to-70':
         query = f'''select * from {skin_type} 
@@ -50,6 +51,7 @@ def index():
 def result():
 
     user_input = request.args.get('user_input', type=str)
+
     dict_user_input = eval(user_input)
 
     info = Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
