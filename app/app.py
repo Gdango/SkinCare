@@ -35,12 +35,12 @@ def index():
         try:
             # covers cases when user entered more than one requirements for each category
             if max(len(skin_type), len(rating), len(price)) != 1:
-                Warning = "Please enter 1 Parameter Only"
+                Warning = "Please enter 1 parameter for each section only."
                 return render_template('index.html', Warning=Warning)
             else:
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
                 return redirect(url_for('result', user_input=user_input))
-        except UnboundLocalError:
+        except IndexError:
             # covers cases when user did not check all the requirements
             Warning = 'You must enter all parameters!'
 
