@@ -7,9 +7,8 @@ B = split_input[1]
 C = split_input[2]
 D = split_input[3]
 
-print("4=", split_input)
 def get_info(query):
-    print('5=', "Pass")
+
     conn = psycopg2.connect(host=A, database=B, user=C, password=D)
     cur = conn.cursor()  
     cur.execute(query)

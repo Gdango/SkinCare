@@ -1,23 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 import get_info
-
-print("Hello World")
-def Query(skin_type, rating, price):
-    if price == '25-to-70':
-        query = f'''select * from {skin_type} 
-            where (rating >= {rating}) 
-            and (max_amount between {price.split('-to-', 1)[0]} 
-            and {price.split('-to-',1)[1]});'''
-    elif price == '70':
-        query = f'''select * from {skin_type}
-                where (rating >= {rating})
-                and max_amount >= 70;'''
-    elif price == '25':
-        query = f'''select * from {skin_type}
-                where (rating >= {rating})
-                and max_amount <= 25;'''
-    info = get_info.get_info(query)
-    return info
+import Query
 
 app = Flask(__name__)
 
@@ -54,8 +37,8 @@ def result():
 
     dict_user_input = eval(user_input)
 
-    info = Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
-
+    query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
+    info = get_info.get_info(query)
     return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
 
 if __name__ == "__main__":
