@@ -5,8 +5,40 @@ import threading
 
 class parse_html:
     def __init__(self, url):
-        self.url = url
+        self.base_url = "https://www.ulta.com/skin-care-moisturizers?N=2796"
 
+
+    #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
+
+    def create_url(self):
+        url_dry = "Z1z13p3o" #6 pages
+        url_normal = "Z1z13p3l" #6 pages
+        url_combination = "Z1z13p3l" #6 pages
+        url_oily = "Z1z13p3j" #5 pages
+        url_sensitive = "Z1z13p3m" #4 pages
+        url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
+        page = 0
+
+        for i in range(0, len(url_parts)):
+
+            url = url_base + url_parts[i]
+            #headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
+            f = open(filename_skintype[i], "w")  #write in cvs file
+            #f.write(headers)
+            info(url)
+            
+
+            while True:
+                try: 
+                    url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
+                    info(url)
+                    page += 1
+                except:
+                    break
+            f.close()
+        return url
+
+class info(parse_html):
     def soup_result(self, url):
         uClient = uReq(url)
         page_html = uClient.read()
@@ -62,35 +94,6 @@ class parse_html:
     f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
-url_base = "https://www.ulta.com/skin-care-moisturizers?N=2796"
 
-
-url_dry = "Z1z13p3o" #6 pages
-url_normal = "Z1z13p3l" #6 pages
-url_combination = "Z1z13p3l" #6 pages
-url_oily = "Z1z13p3j" #5 pages
-url_sensitive = "Z1z13p3m" #4 pages
-
-
-#filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]
-filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
-url_parts = [url_dry, url_normal, url_combination, url_oily, url_sensitive]
-
-pages = 6 # maximum page is 6
-
-for i in range(0, len(url_parts)):
-
-    url = url_base + url_parts[i]
-    #headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
-    f = open(filename_skintype[i], "w")  #write in cvs file
-    #f.write(headers)
-    info(url)
-    for page in range(1, pages):
-        try: 
-            url = url_base + url_parts[i] + '&No=' + str(96*page) + '&Nrpp=96'
-            info(url)
-        except:
-            break
-    f.close()
 
 
