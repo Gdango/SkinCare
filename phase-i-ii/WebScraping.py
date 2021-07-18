@@ -2,43 +2,64 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 import threading
 
-def info(url):
-    uClient = uReq(url)
-    page_html = uClient.read()
-    uClient.close()
-    page_soup = soup(page_html, "html.parser")
-    prod_containers = page_soup.findAll("div", {"class": "productQvContainer"})
 
-    for prod_container in prod_containers:
-        title = prod_container.find("div", "prod-title-desc")
-        #get rid of the 'n\t\t\t\t' in the string
-        brand = title.a.text.replace('\n\t\t\t\t','')
-        prod_name_temp = title.p.a.text.replace('\n\t\t\t\t','')
-        prod_name = prod_name_temp.replace(",", "|")
+class parse_html:
+    def __init__(self, url):
+        self.url = url
+
+    def soup_result(self, url):
+        uClient = uReq(url)
+        page_html = uClient.read()
+        uClient.close()
+        page_soup = soup(page_html, "html.parser")
         
-        #grab the section for price
+        return page_soup
+    
+    def containers(self, page_soup):
+        self.prod_containers = page_soup.findAll("div", {"class": "productQvContainer"})
 
-        price_class = prod_container.find("p", "price")
-        price_dollar = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
-        price = price_dollar.replace('$','') #get red of dollar sign
-        if '-' not in price:
-            price = price + ',' + price
-        else:
-            price = price.replace('-', ',')
+    def info_brand(self, prod_containers):
+        for prod_container in prod_containers:
+            title = prod_container.find("div", "prod-title-desc")
+            #get rid of the 'n\t\t\t\t' in the string
+            brand = title.a.text.replace('\n\t\t\t\t','')
+        return brand
+    
+    def info_prod_name(self, prod_containers):
+        for prod_container in prod_containers:
+            prod_name_temp = title.p.a.text.replace('\n\t\t\t\t','')
+            prod_name = prod_name_temp.replace(",", "|")
+            
+        return prod_name
 
-        #use try and except statement since some do not have a rating
-        try:  #some doesn't have rating so need to use try & except 
-            # finding the rating
-            rating_div = prod_container.find("div", "rating") 
-            rating = rating_div.div.span["class"] 
-            #returns the second item on the list since that's the rating
-            rating = rating[1].replace('rating-','')
-            rating = rating.replace('-', '.')
-        except:
-            rating = 0
-        
-        #write the data set into the cvs file
-        f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
+    def info_price(self, prod_containers):
+            #grab the section for price
+        for prod_container in prod_containers:
+            price_class = prod_container.find("p", "price")
+            price_dollar = price_class.div.span.text.replace('\r\n\t\t\t\t\t\t','')
+            price = price_dollar.replace('$','') #get red of dollar sign
+            if '-' not in price:
+                price = price + ',' + price
+            else:
+                price = price.replace('-', ',')
+        return price
+
+    def info_rating(self, prod_containers):
+        for prod_container in prod_containers:
+            #use try and except statement since some do not have a rating
+            try:  #some doesn't have rating so need to use try & except 
+                # finding the rating
+                rating_div = prod_container.find("div", "rating") 
+                rating = rating_div.div.span["class"] 
+                #returns the second item on the list since that's the rating
+                rating = rating[1].replace('rating-','')
+                rating = rating.replace('-', '.')
+            except:
+                rating = 0
+        return rating
+            
+            #write the data set into the cvs file
+    f.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 url_base = "https://www.ulta.com/skin-care-moisturizers?N=2796"
