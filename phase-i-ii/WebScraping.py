@@ -1,4 +1,4 @@
-import Ulta_WS
+from Ulta_WS import Parse
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 import threading
@@ -9,10 +9,8 @@ def Ulta_info():
     constant = 96
 
     url = url_base + url_parts["url_dry"]
-
-    print(type(Ulta_WS.Parse.soup_result(url)))
-    page_soup = Ulta_WS.Parse.soup_result(url)
-    print(type(page_soup.findAll("div", {"class": "productQvContainer"})))
+    P = Parse(url)
+    print(P.info())
 
     
 Ulta_info()
