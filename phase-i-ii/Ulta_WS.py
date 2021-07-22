@@ -8,6 +8,7 @@ class Ulta:
         self.url_parts = url_parts
         self.url_base = url_base
         self.constant = constant
+        self.file = None
 
     #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
     def _soup_page(self, url):
@@ -22,18 +23,18 @@ class Ulta:
         for urlpart in self.url_parts:
             url = f"{self.url_base}{self.url_parts[urlpart]}"
             #headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
-            f = open(urlpart, "w")  #write in cvs file
+            self.file = open(urlpart, "w")  #write in cvs file
             #f.write(headers)
             self.info(url)
             
             while True:
                 try: 
-                    url = url_base + urlpart + '&No=' + str(constant*page) + '&Nrpp=96'
+                    url = f"{url_base}{urlpart}'&No='{str(constant*page)}'&Nrpp=96'"
                     self.info(url)
                     page += 1
                 except:
                     break
-            f.close()
+            self.file.close()
         
     def containers(self, url):
         page_soup = self._soup_page(url)
@@ -80,7 +81,7 @@ class Ulta:
             prod_name = self._info_prod_name(container)
             rating = self._info_rating(container)
             price = self._info_price(container)
-            write(brand + "," + prod_name + "," + rating + "," + price + "\n")
+            self.file.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 
