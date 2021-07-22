@@ -2,41 +2,42 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 import threading
 
-class Parse:
+class Ulta:
   
-    def __init__(self,url):
-        self.url = url
+    def __init__(self, url_parts, url_base, constant):
+        self.url_parts = url_parts
+        self.url_base = url_base
+        self.constant = constant
+
+    #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
+    def _soup_page(self, url):
         uClient = uReq(url)
         page_html = uClient.read()
         uClient.close()
-        self.page_soup = soup(page_html, "html.parser")
+        return soup(page_html, "html.parser")
 
-    #filename_concern = ["dryness", "anti_aging", "dark_spots", "tone", "redness", "oiliness", "acne", "blackhead", "finelines", "darkcircles"]filename_skintype = ["dry_skin.csv", "normal.csv", "combination.csv", "oily.csv", "sensitive.csv"]
-
-    def create_url(self, url_parts, url_base, constant):        
+    def Parse(self):      
         page = 0
 
-        for urlpart in urlparts:
-
-            url = url_base + urlparts[urlpart]
+        for urlpart in self.url_parts:
+            url = f"{self.url_base}{self.url_parts[urlpart]}"
             #headers = "brand,product_name,rating,price \n" #min_amount,max_amount \n"
             f = open(urlpart, "w")  #write in cvs file
             #f.write(headers)
-            info(url)
+            self.info(url)
             
             while True:
                 try: 
-                    url = url_base + url_parts[i] + '&No=' + str(constant*page) + '&Nrpp=96'
-                    info(url)
+                    url = url_base + urlpart + '&No=' + str(constant*page) + '&Nrpp=96'
+                    self.info(url)
                     page += 1
                 except:
                     break
             f.close()
-        return url
         
-    
-    def containers(self):
-        return self.page_soup.findAll("div", {"class": "productQvContainer"})
+    def containers(self, url):
+        page_soup = self._soup_page(url)
+        return page_soup.findAll("div", {"class": "productQvContainer"})
 
     def _info_brand(self, prod_container):
         title = prod_container.find("div", "prod-title-desc")
@@ -73,15 +74,13 @@ class Parse:
             
             #write the data set into the cvs file
 
-    def info(self):
-        for container in self.containers():
+    def info(self, url):
+        for container in self.containers(url):
             brand = self._info_brand(container)
             prod_name = self._info_prod_name(container)
             rating = self._info_rating(container)
             price = self._info_price(container)
-
-            return brand, prod_name, rating, price
-            #f.write(self.branch + "," + self.prod_name + "," + self.rating + "," + self.price + "\n")
+            write(brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 
