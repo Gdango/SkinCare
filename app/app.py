@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-import get_info
-import Query
+#import get_info
+#import Query
 
 app = Flask(__name__)
 
