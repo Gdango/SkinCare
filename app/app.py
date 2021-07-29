@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
-#import get_info
-#import Query
+import get_info
+import Query
 
 app = Flask(__name__)
 
@@ -18,9 +18,6 @@ def index():
         try:
             # covers cases when user entered more than one requirements for each category
             if max(len(skin_type), len(rating), len(price)) != 1:
-                Warning = "Please enter 1 parameter for each section only."
-                return render_template('index.html', Warning=Warning)
-            else:
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
                 return redirect(url_for('result', user_input=user_input))
         except IndexError:
