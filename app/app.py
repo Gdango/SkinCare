@@ -8,16 +8,17 @@ app = Flask(__name__)
 
 def index():
     Warning = ""
-
+    print('omg..')
     if request.method == "POST":
 
         skin_type = request.form.getlist("skin_type")
         rating = request.form.getlist("Rating")
         price = request.form.getlist("Price") 
-        
+        print(skin_type, rating, price)
         try:
             # covers cases when user entered more than one requirements for each category
-            if max(len(skin_type), len(rating), len(price)) != 1:
+            if max(len(skin_type), len(rating), len(price)) == 1:
+                print('PASS!')
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
                 return redirect(url_for('result', user_input=user_input))
         except IndexError:
@@ -34,9 +35,9 @@ def result():
 
     dict_user_input = eval(user_input)
 
-    query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'])
+    query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], 'brand ASC')
     info = get_info.get_info(query)
-    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Rating=info[2], Price=info[3])
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[2], Rating=info[3])
 
 if __name__ == "__main__":
     app.run(debug=True)

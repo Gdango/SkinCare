@@ -29,7 +29,7 @@ def get_info(query):
         price.append(rows[row][2])
         rating.append(rows[row][3])
     
-    row = [brand, prod_name, rating, price]
+    row = [brand, prod_name, price, rating]
 
 
     return row
