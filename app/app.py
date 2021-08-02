@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 def index():
     Warning = ""
-    print('omg..')
+
     if request.method == "POST":
 
         skin_type = request.form.getlist("skin_type")
@@ -17,8 +17,6 @@ def index():
         print(skin_type, rating, price)
         try:
             # covers cases when user entered more than one requirements for each category
-            if max(len(skin_type), len(rating), len(price)) == 1:
-                print('PASS!')
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
                 return redirect(url_for('result', user_input=user_input))
         except IndexError:
