@@ -13,28 +13,33 @@
 <body class="result">
     <br>
     <br>
-    <div class="dropdown">
-        <button class="dropbtn">Sort by</button>
-        <div class="dropdown-content">
-            <a href="#">Low to High</a>
-            <a href="#">High to Low</a>
-            <a href="#">Alphabetically A-Z</a>
+    <div action='/SortResult' method="POST">
+        <div class="dropdown">
+            <button class="dropbtn">Sort by</button>
+            <div class="dropdown-content">
+                <input type="submit" name="sorting" value="Low-to-High">Low to High</div>
+                <input type=button name="sorting" value="High-to-Low">
+                <label>High to Low</label><br>
+                <input type=button name="sorting" value="Alphabetically">
+                <!--<a href="#">High to Low</a>
+                <a href="#">Alphabetically A-Z</a>-->
+            </div>
         </div>
     </div>
     <table class="result-table">
         <thead class="title">
             <th>Brand Name</th>
             <th>Product Name</th>
-            <th>Rating</th>
             <th>Price</th>
+            <th>Rating</th>
         </thead>
         
         {% for i in range(0, length) %}
         <thead class="element">
             <th>{{ Brand[i] }}</th>
             <th>{{ Product[i] }}</th>
-            <th>{{ Rating[i] }}</th>
             <th>{{ Price[i] }}</th>
+            <th>{{ Rating[i] }}</th>
         </thead>
         {% endfor %}
 

@@ -7,21 +7,4 @@ Here is the [demo](https://skin-care-gd.herokuapp.com/) I deployed onto Heroku.
 
 Tools: Python-Flask, PostgreSQL, AWS-RDS, HTML5, CSS, Matplotlib
 
-I broke down this project into multiple phases.   
-
-# Phase 1
-Webscraped different sites using beautiful-soup package from Python to create a database.  Then I would host it on the AWS-RDS instance.
-
-# Phase 2
-Analyzed the data using SQL and graph that using Matplotlib
-
-# Phase 3
-Created the front-end of the web app
-
-![](phase-i-ii/images/front-end.PNG)
-
-# Phase 4
-Create the back-end of the web app - I am planning on using Flask-Python
-
-# Phase 5
-Deployment!
+https://aws.amazon.com/premiumsupport/knowledge-center/create-subdomain-route-53/

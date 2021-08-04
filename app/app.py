@@ -35,7 +35,7 @@ def result():
 
     query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], 'brand ASC')
     info = get_info.get_info(query)
-    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[2], Rating=info[3])
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[3], Rating=info[2])
 
 if __name__ == "__main__":
     app.run(debug=True)
