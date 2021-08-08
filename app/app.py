@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, url_for, request, redirect, flash
 import get_info
 import Query
@@ -36,6 +37,14 @@ def result():
     query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], 'brand ASC')
     info = get_info.get_info(query)
     return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[3], Rating=info[2])
+
+@app.route('/SortResult', methods=['POST', 'GET'])
+
+def sortresult():
+    info = request.args.get('info', type=str)
+
+    return render_template('index.html')
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
