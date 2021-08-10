@@ -15,7 +15,7 @@ def index():
         skin_type = request.form.getlist("skin_type")
         rating = request.form.getlist("Rating")
         price = request.form.getlist("Price") 
-        print(skin_type, rating, price)
+
         try:
             # covers cases when user entered more than one requirements for each category
                 user_input = {'skin-type': skin_type[0], 'rating': rating[0], 'price': price[0]}
@@ -30,20 +30,34 @@ def index():
 
 def result():
 
-    user_input = request.args.get('user_input', type=str)
+    if request.method == "POST":
 
-    dict_user_input = eval(user_input)
+        return redirect(url_for('sortresult', user_input=user_input))
+    else:
+        user_input = request.args.get('user_input', type=str)
 
-    query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], 'brand ASC')
-    info = get_info.get_info(query)
+        dict_user_input = eval(user_input)
+
+        query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], 'brand ASC')
+        info = get_info.get_info(query)
+
     return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[3], Rating=info[2])
 
 @app.route('/SortResult', methods=['POST', 'GET'])
 
 def sortresult():
-    info = request.args.get('info', type=str)
+    user_input = request.args.get('user_input', type=str)
+    print('USER INPUT', user_input)
+    dict_user_input = eval(user_input)
+    sorting = request.form.list("sorting")
+    if sorting == "Low-to-High":
+        sorting = "Price DSC"
+    else:
+        sorting = "Price ASC"
+    query = Query.Query(dict_user_input['skin-type'], dict_user_input['rating'], dict_user_input['price'], sorting)
+    info = get_info.get_info(query)
 
-    return render_template('index.html')
+    return render_template('result.html', length=len(info[0]), Brand=info[0], Product=info[1],  Price=info[3], Rating=info[2])
     
 
 if __name__ == "__main__":
