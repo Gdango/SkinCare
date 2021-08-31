@@ -1,2 +1,2 @@
 aws-terraform/provider.tf
-aws-terraform/
+aws-terraform/*
