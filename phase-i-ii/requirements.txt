@@ -83,7 +83,7 @@ PyYAML==5.2
 queuelib==1.6.1
 requests==2.23.0
 requests-unixsocket==0.1.5
-rsa==3.4.2
+rsa==4.7
 s3transfer==0.3.3
 Scrapy==2.5.0
 SecretStorage==2.3.1
