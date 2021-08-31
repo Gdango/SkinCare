@@ -1,13 +1,13 @@
 import psycopg2
-import access
+import os
 
 def update_table():
-    split_input = access.key()
-    A = split_input[0]
-    B = split_input[1]
-    C = split_input[2]
-    D = split_input[3]
+    host = os.environ['AWS_HOST']
+    database = os.environ['AWS_SKINAPP_DATABASE']
+    user = os.environ['AWS_SKINAPP_USER']
+    password = os.environ['AWS_SKINAPP_PASSWORD']
 
-    conn = psycopg2.connect(host=A, database=B, user=C, password=D)
+    conn = psycopg2.connect(host=host, database=database, user=user, password=password)
     cur = conn.cursor()
     
+update_table()
