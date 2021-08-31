@@ -4,7 +4,7 @@ locals {
 
 data "archive_file" "init" {
   type        = "zip"
-  source_file = "WebScraping.py"
+  source_files = ["WebScraping.py", "Ulta_WS.py"]
   output_path = local.lambda-zip-location
 }
 

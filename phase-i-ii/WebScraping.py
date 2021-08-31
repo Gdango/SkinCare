@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 
 
+
 def Ulta_info():
     url_base = {"moisturizer": "https://www.ulta.com/skin-care-moisturizers?N=2796",
                 "cleanser": "https://www.ulta.com/skin-care-cleansers?N=2794"}
@@ -11,6 +12,3 @@ def Ulta_info():
 
     U = Ulta(url_parts, url_base, constant)
     U.Parse()
-
-def main(event, context):
-    Ulta_info()

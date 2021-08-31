@@ -12,5 +12,3 @@ def Ulta_info():
     U = Ulta(url_parts, url_base, constant)
     U.Parse()
 
-def main(event, context):
-    Ulta_info()
