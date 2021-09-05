@@ -98,7 +98,7 @@ typing-extensions==3.7.4.3
 tzlocal==2.1
 ufw==0.36
 unattended-upgrades==0.1
-urllib3==1.25.9
+urllib3==1.26.5
 virtualenv==20.0.33
 virtualenv-clone==0.5.4
 w3lib==1.22.0
