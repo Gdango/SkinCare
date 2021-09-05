@@ -85,7 +85,7 @@ class Ulta:
             prod_name = self._info_prod_name(container)
             rating = self._info_rating(container)
             price = self._info_price(container)
-            self.file.write(brand + "," + prod_name + "," + rating + "," + price + "\n")
+            self.file.write(product_id + "," + brand + "," + prod_name + "," + rating + "," + price + "\n")
 
 
 
