@@ -14,6 +14,6 @@ def Ulta_info():
     U = Ulta(url_parts, url_base, constant)
     P = U.containers(url)
     
-    return P
+    return P[0]
 
 print(Ulta_info())

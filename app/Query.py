@@ -27,7 +27,10 @@ class Query:
 
     def create_table(self):
         query = f'''create table UltaProducts (
+            product_id INTEGER(4294967295)
             brand VARCHAR (200),
             prod_name VARCHAR (200),
             rating FOAT(2),
-        )
+        )'''
+
+        return query

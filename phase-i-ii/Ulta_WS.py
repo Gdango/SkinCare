@@ -41,6 +41,9 @@ class Ulta:
         page_soup = self._soup_page(url)
         return page_soup.findAll("div", {"class": "productQvContainer"})
 
+    def _product_id(self, prod_container):
+        return prod_container["id"]
+
     def _info_brand(self, prod_container):
         title = prod_container.find("div", "prod-title-desc")
         #get rid of the 'n\t\t\t\t' in the string
