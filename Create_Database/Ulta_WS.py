@@ -57,7 +57,7 @@ class Ulta:
 # scrape out link to product
     def _prod_link(self, prod_container):
         link = prod_container.find("div", "quick-view-prod")
-        return f"'ulta.com'{link.a["href"]}
+        return f"ulta.com{link.a["href"]}"
 
     def _info_price(self, prod_container):
         price_class = prod_container.find("p", "price")
@@ -91,6 +91,7 @@ class Ulta:
             price = self._info_price(container)
             prod_id = self._product_id(container)
             link = self._prod_link(container)
+
             self.file.write(product_id + "," + brand + "," + prod_name + "," + rating + "," + price + "," + link+"\n")
 
 

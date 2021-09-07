@@ -10,3 +10,6 @@ def access_database():
     conn = psycopg2.connect(host=host, database=database, user=user, password=password)
     cur = conn.cursor()
     
+def main():
+    access_database()
+    Query.create_table()

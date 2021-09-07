@@ -25,8 +25,8 @@ class Query:
                     order by {self.order_by};'''
         return query
 
-    def create_table(self):
-        query = f'''create table UltaProducts (
+    def create_table(self, table_name):
+        query = f'''create table {table_name} (
             product_id INTEGER(4294967295)
             brand VARCHAR (200),
             prod_name VARCHAR (200),

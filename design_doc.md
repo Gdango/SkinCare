@@ -7,12 +7,14 @@ Currently the most frequent retail sites do not carry all the brands and product
 Create a centralize database that host data from the most frequent websites.  That way users could see all the information on one page.
 
 # System Design and Architecture
-Lambda --> RDS
+Lambda --> RDS 1 --> RDS 2 (reporting database)
 
 Lambda will scrape retail sites every 24 hours and update the tables as need. 
 
 The number of database will be based on the number of retail sites being scraped.  
 
 # Challenges
+
+One of the challenges is the site might error out if the client is pulling the request while the database is being updated. To prevent that issue, two tables will be created to store the skincare products.  Table 1 will store the data and interact with the client.  Table 2 will be the working data for the update.  Once Table 2 finish updating, it will transfer the data to Table 1.  That will the interruption time will be minimal.
 
 # Test Plan
