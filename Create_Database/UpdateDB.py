@@ -1,5 +1,6 @@
 import psycopg2
 import os
+from WebScraping import Ulta_info
 
 def access_database():
     host = os.environ['AWS_HOST']
@@ -13,3 +14,5 @@ def access_database():
 def main():
     access_database()
     Query.create_table()
+
+
