@@ -15,6 +15,23 @@ class Ulta:
         page_html = uClient.read()
         uClient.close()
         return soup(page_html, "html.parser")
+    
+    #looping through the pages
+    def _pages(self, url_bases, url_base, url_parts, url_part, constant):
+        brand = []
+        prod_name = []
+        rating = []
+        price = []
+        prod_id = []
+        link = []
+        page = 1
+        while True:
+            try:
+                url = f"{url}'&No='{str(constant*page)}'&Nrpp=96'"
+                self.info()
+                page += 1
+            except:
+                break
         
     def containers(self):
         page_soup = self._soup_page()
@@ -62,13 +79,7 @@ class Ulta:
             
             #write the data set into the cvs file
 
-    def info(self):
-        brand = []
-        prod_name = []
-        rating = []
-        price = []
-        prod_id = []
-        link = []
+    def info(self, brand, prod_name, rating, price, prod_id, link):
         for container in self.containers():
             brand.append(self._info_brand(container))
             prod_name.append(self._info_prod_name(container))

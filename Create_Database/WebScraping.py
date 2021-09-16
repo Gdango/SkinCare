@@ -9,24 +9,12 @@ def Ulta_info():
     constant = 96
 
     url = f"{url_bases['moisturizer']}{url_parts['url_dry']}"
+
+    # returned data in order of brand, prod_name, rating, price, prod_id, link
     P = Ulta(url)
     data = P.info()
-    '''for url_base in url_bases:
-        for url_part in url_parts:
-            
-            page = 0
-            while True:
-                try:
-                    url = f"{url_bases[url_base]}{url_parts[url_part]}'&No='{str(constant*page)}'&Nrpp=96'"
-                    print(url)
-                    P = Ulta(url)
-                    data = P.info()
-                    print(data)
-                    page += 1
-                except:
-                    break
 
-    return data'''
     return data
+
 
 print(Ulta_info())
