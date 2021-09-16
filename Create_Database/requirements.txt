@@ -41,7 +41,7 @@ incremental==16.10.1
 itemadapter==0.2.0
 itemloaders==1.0.4
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 jmespath==0.10.0
 jsonpatch==1.16
 jsonpointer==1.10
